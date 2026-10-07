@@ -1,0 +1,7 @@
+snapshots:
+  - name: clientes_snapshot
+    relation: source('raw', 'clientes')
+    config:
+      unique_key: id
+      strategy: check
+      check_cols: ['nombre', 'ciudad']

@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_clientes
+    description: Clientes de la tienda, una fila por cliente.
+    columns:
+      - name: cliente_id
+        description: Identificador unico del cliente.
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_pedidos
+    description: Pedidos realizados, una fila por pedido.
+    columns:
+      - name: pedido_id
+        description: Identificador unico del pedido.
+        data_tests:
+          - unique
+          - not_null
+      - name: cliente_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_clientes')
+                field: cliente_id
+      - name: estado
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['completado', 'cancelado', 'pendiente']
+      - name: monto
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: false

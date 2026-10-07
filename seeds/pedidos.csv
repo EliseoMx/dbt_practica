@@ -1,0 +1,9 @@
+id,cliente_id,fecha_pedido,estado,monto
+101,1,2026-03-01,completado,850.50
+102,1,2026-03-10,completado,1200.00
+103,2,2026-03-11,cancelado,430.00
+104,3,2026-03-15,completado,2100.75
+105,3,2026-03-20,pendiente,310.00
+106,4,2026-03-22,completado,990.00
+107,2,2026-04-01,completado,560.00
+108,4,2026-04-03,pendiente,120.00
